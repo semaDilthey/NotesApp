@@ -13,9 +13,8 @@ class BaseCell : UICollectionViewCell {
 
     override var isSelected: Bool {
         didSet {
-            isSelected ? contentView.backgroundColor = .red : configureView()
+            isSelected ? contentView.backgroundColor = .black.withAlphaComponent(0.1) : configureView()
         }
-        
     }
 
     override init(frame: CGRect) {
@@ -35,7 +34,8 @@ class BaseCell : UICollectionViewCell {
 @objc extension BaseCell {
     
     func configureView() {
-        contentView.backgroundColor = R.Colors.white
+        contentView.backgroundColor = R.Colors.setRandomColor()
+        #warning("Возмжожно всем запискам сделать желтый/ розовый цвет")
         contentView.layer.cornerRadius = 10
         contentView.clipsToBounds = true
     }

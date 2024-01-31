@@ -17,9 +17,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         
         let notesController = NotesViewController(viewModel: NotesViewModel(dataStorage: DataStorage()))
-        let rootController = BaseNavController(rootViewController: notesController)
+        var rootController = BaseNavController()
+        
+        if AppDelegate().isNewUser() {
+            rootController = BaseNavController(rootViewController: OnboardingPageController())
+            rootController.isNavigationBarHidden = true
+            window?.rootViewController = rootController
+            CoreDataManager.shared.resetAllCoreData()
+        } else {
+            rootController = BaseNavController(rootViewController: notesController)
+            window?.rootViewController = rootController
+        }
         window?.makeKeyAndVisible()
-        window?.rootViewController = rootController
+       
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import CoreData
 
-enum NoteType: CaseIterable {
+enum NoteType: Int, CaseIterable {
     case toDo
     case work
     case daily
@@ -15,16 +16,51 @@ enum NoteType: CaseIterable {
 }
 
 struct Note {
+    var title: String
     var text: String
     var date: Date
     var pictures: [UIImage]?
     var noteType: NoteType
+    var index: Int
     
-    init(text: String, date: Date, pictures: [UIImage]? = nil, noteType: NoteType) {
+    var fullText : String {
+        title + "\n" + text
+    }
+    
+    init(title: String, text: String, date: Date, pictures: [UIImage]? = nil, noteType: NoteType, index: Int) {
+        self.title = title
         self.text = text
         self.date = date
         self.pictures = pictures
         self.noteType = noteType
+        self.index = index
+    }
+}
+
+extension Note : EntityModelMapProtocol {
+    
+    typealias EntityType = NoteEntity
+
+    func mapToEntityInContext(_ context: NSManagedObjectContext) -> EntityType {
+        let note = NoteEntity(context: context)
+        note.title = self.title
+        note.text = self.text
+        note.date = self.date
+        note.noteType = Int16(self.noteType.rawValue)
+        note.index = Int16(self.index)
+        
+        return note
+    }
+    
+    static func mapFromEntity(_ entity: EntityType) -> Note {
+        let note = Note(
+            title: entity.title ?? "No title",
+            text: entity.text ?? "No text",
+            date: entity.date!,
+            noteType: NoteType(rawValue: Int(entity.noteType)) ?? .toDo,
+            index: Int(entity.index)
+        )
+        return note
     }
 }
 
