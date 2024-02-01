@@ -1,10 +1,12 @@
 # NotesApp
 Простейшее приложение для создания и хранения заметок. Архитектура MVVM, в качестве хранилища заметок идет CoreData, для отслеживания первого входа использовал UserDefaults
 
-The main task of this testapp is to match the design and scrolling of the menu vertically/horizontally. I consider it successfully completed
+![Slide 16_9 - 1notes_demo_collage](https://github.com/semaDilthey/NotesApp/assets/128741166/16bf5d4d-270c-414c-a6b4-5826ffe68555)
+
+
 
 ## Prototype:  
-    Хотелось бы прикрепить ссылку на какую-либо фигму, но дизайн собирался на ходу из кучи разных макетов на бехансе
+Хотелось бы прикрепить ссылку на какую-либо фигму, но дизайн собирался на ходу из кучи разных макетов на бехансе
 
 ## What needs to be done:
 
@@ -25,7 +27,7 @@ The main task of this testapp is to match the design and scrolling of the menu v
 - Добавить пикерВью/сегментед контрол для выбора типа заметки (daily, important, job, and so on)
 - Добавить хедер с коллекцией типа заметок. По выбору хедера перезагружать коллекцию фильтруя по типу
 - Добавить добавление картинок и отображение их наличия в ячейках коллекции
-
+- Имплементировать координатор
 
 ## Technologies Used
 - SWIFT
@@ -38,5 +40,6 @@ The main task of this testapp is to match the design and scrolling of the menu v
  ## Presentation
  
     Приложение состоит из 4 модулей. При первом запуске все начинается с онбординга, а дальше экран со всеми ячейками, экран создания ячейки и экран редактирования ячейки
-![Демонстрация](https://github.com/semaDilthey/HotelTest/assets/128741166/7a30de79-0124-4287-8215-ba891051b5b9)
+
+![Notes_CFT_Demo](https://github.com/semaDilthey/NotesApp/assets/128741166/af5980ce-5a4b-44dd-8cd0-396404793541)
 
