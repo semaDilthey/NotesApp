@@ -17,11 +17,10 @@ class BaseNavController : UINavigationController {
     }
     
     private func configure() {
-           
+        
        let navBarAppearance = UINavigationBarAppearance()
        navBarAppearance.backgroundColor = R.Colors.background
-       navBarAppearance.titleTextAttributes = [.foregroundColor : R.Colors.active,
-                                               .font : UIFont.R.nunitoSans(size: 17, weight: .bold)]
+       navBarAppearance.titleTextAttributes = [.foregroundColor : R.Colors.active, .font : UIFont.R.nunitoSans(size: 17, weight: .bold) as Any]
        navBarAppearance.shadowColor = R.Colors.background
      
        navigationBar.standardAppearance = navBarAppearance
