@@ -55,15 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-    //MARK: - User Defaults for saving user's first entry
+   
     
-    func isNewUser() -> Bool {
-        return !UserDefaults.standard.bool(forKey: R.Strings.Keys.isNewUser)
-    }
-    
-    func setIsNotNewUser() {
-        UserDefaults.standard.setValue(true, forKey: R.Strings.Keys.isNewUser)
-    }
 
 }
 

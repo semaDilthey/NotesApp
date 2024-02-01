@@ -21,19 +21,19 @@ struct Note {
     var date: Date
     var pictures: [UIImage]?
     var noteType: NoteType
-    var index: Int
+    var isFavorite: Bool
     
     var fullText : String {
         title + "\n" + text
     }
     
-    init(title: String, text: String, date: Date, pictures: [UIImage]? = nil, noteType: NoteType, index: Int) {
+    init(title: String, text: String, date: Date, pictures: [UIImage]? = nil, noteType: NoteType, isFavorite: Bool) {
         self.title = title
         self.text = text
         self.date = date
         self.pictures = pictures
         self.noteType = noteType
-        self.index = index
+        self.isFavorite = isFavorite
     }
 }
 
@@ -47,7 +47,7 @@ extension Note : EntityModelMapProtocol {
         note.text = self.text
         note.date = self.date
         note.noteType = Int16(self.noteType.rawValue)
-        note.index = Int16(self.index)
+        note.isFavorite = self.isFavorite
         
         return note
     }
@@ -56,9 +56,9 @@ extension Note : EntityModelMapProtocol {
         let note = Note(
             title: entity.title ?? "No title",
             text: entity.text ?? "No text",
-            date: entity.date!,
+            date: entity.date ?? Date.now,
             noteType: NoteType(rawValue: Int(entity.noteType)) ?? .toDo,
-            index: Int(entity.index)
+            isFavorite: entity.isFavorite
         )
         return note
     }

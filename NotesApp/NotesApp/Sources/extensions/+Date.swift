@@ -11,8 +11,8 @@ extension Date {
     
     func formattedDateString() -> String {
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd MMM yyyy"
-            dateFormatter.locale = Locale(identifier: "ru_RU") // Устанавливаем локаль для отображения месяца на русском языке
+            dateFormatter.dateFormat = "dd MMM yyyy HH:mm"
+            dateFormatter.locale = Locale(identifier: "ru_RU") 
             return dateFormatter.string(from: self)
         }
     

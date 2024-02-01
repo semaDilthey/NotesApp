@@ -55,13 +55,17 @@ extension OnboardingController {
         view.backgroundColor = .white
         image.contentMode = .scaleAspectFit
         
-        titleLabel.font = UIFont.R.nunitoSans(size: 33, weight: .bold)
+        titleLabel.font = UIFont.R.nunitoSans(size: 25, weight: .bold)
+        titleLabel.textColor = R.Colors.black
         titleLabel.numberOfLines = 0
         titleLabel.lineBreakMode = .byWordWrapping
         titleLabel.textAlignment = .center
+        titleLabel.adjustsFontSizeToFitWidth = true
+        
         
         subtitle.font = UIFont.R.nunitoSans(size: 16, weight: .thin)
         subtitle.numberOfLines = 0
+        subtitle.textColor = R.Colors.black
         subtitle.lineBreakMode = .byWordWrapping
         subtitle.textAlignment = .center
         
@@ -97,8 +101,8 @@ extension OnboardingController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .center
-        stack.distribution = .fillProportionally
-        stack.spacing = 16
+        stack.distribution = .fill
+        stack.spacing = 10
         
         lowerContainer.addSubview(stack)
         
@@ -116,6 +120,7 @@ extension OnboardingController {
             stack.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -24),
             stack.leadingAnchor.constraint(equalTo: lowerContainer.leadingAnchor, constant: 16),
             stack.trailingAnchor.constraint(equalTo: lowerContainer.trailingAnchor, constant: -16),
+            stack.topAnchor.constraint(equalTo: lowerContainer.topAnchor, constant: 45),
             
             image.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             image.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),

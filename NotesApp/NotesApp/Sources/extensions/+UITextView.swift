@@ -8,6 +8,7 @@
 import UIKit
 
 extension UITextView {
+    
     func getFirstLine() -> String {
         var firstLine = ""
         guard let text = self.text, !text.isEmpty else { return ""}

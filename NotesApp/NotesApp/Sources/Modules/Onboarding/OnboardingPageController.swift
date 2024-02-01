@@ -91,12 +91,12 @@ extension OnboardingPageController {
             pageControl.heightAnchor.constraint(equalToConstant: 20),
             pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            progressView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -335),
+            progressView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -320),
             progressView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             progressView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             progressView.heightAnchor.constraint(equalToConstant: 3),
             
-            progressIndicator.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -335),
+            progressIndicator.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -320),
             progressIndicator.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             progressIndicator.widthAnchor.constraint(equalToConstant: 120),
             progressIndicator.heightAnchor.constraint(equalToConstant: 3),
@@ -113,8 +113,6 @@ extension OnboardingPageController : OnboardingControllerDelegate {
             currentPage = nextIndex
             updateIndicatorPosition()
         } else {
-            print("Последняя страница")
-            AppDelegate().setIsNotNewUser()
             let vc = NotesViewController(viewModel: NotesViewModel(dataStorage: DataStorage()))
             self.navigationController?.pushViewController(vc, animated: true)
         }

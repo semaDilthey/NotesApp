@@ -10,6 +10,8 @@ import UIKit
 
 enum R {
     
+    //MARK: - Colors
+    
     enum Colors : CaseIterable {
         
         static var background = UIColor(hexString: "#F2F2F6")
@@ -26,6 +28,8 @@ enum R {
         }
     }
     
+    //MARK: - Images
+    
     enum Images {
         
         enum Onboarding {
@@ -36,17 +40,39 @@ enum R {
                 case .second:
                     UIImage(named: "Onboarding2")
                 case .third:
-                    UIImage(named: "profile_tab")
+                    UIImage(named: "Onboarding3")
                 }
             }
         }
         
         enum Buttons {
             static var plusIcon = UIImage(named: "plusIcon")
+            static var saveIcon = UIImage(named: "diskette")
+            static var notFavorite = UIImage(named: "!isFavorite")
+            static var isFavorite = UIImage(named: "isFavorite")
         }
     }
     
+    //MARK: -  Strings
+    
     enum Strings {
+        
+        enum Titles {
+            
+            static var creatingNote = "Создание заметки"
+        }
+        
+        enum Buttons {
+            static var back = "Назад"
+            static var notes = "Заметки"
+            static var save = "Сохранить"
+            static var add = "Добавить"
+        }
+        
+        enum Labels {
+            static var myNotes = "Мои записки"
+            static var noNotes = "Нет записок"
+        }
         
         enum Keys {
             static var isNewUser = "isNewUser"
@@ -62,23 +88,24 @@ enum R {
                 static func title(for page: OnboardingControllers) -> String? {
                     switch page {
                     case .first:
-                        "Управляйтесь с вашими запискам с легкостью"
+                        "Добавление заметки в изабранное"
                     case .second:
-                        "Упорядочивайте свои мысли"
+                        "Для удаления просто свайпните вправо"
                     case .third:
                         "Начните"
                     }
                 }
+                
             }
             enum Subtitles {
                 static func subtitle(for page: OnboardingControllers) -> String? {
                     switch page {
                     case .first:
-                        "Удобнейший способ управления и кастомизации ваших записок"
+                        "Просто нажмите на нужную кнопку и заметка всегда будет ждать вас вверху!"
                     case .second:
-                        "Делай заметки, трекайте даты и добавляйте фотографии"
+                        "Но будьте осторожны, восстановить не получится"
                     case .third:
-                        "И ощутите все удобства приложения"
+                        "И получится удовольствие от приложения!"
                     }
                 }
             }
@@ -98,6 +125,8 @@ enum R {
           
         }
     }
+    
+    //MARK: - Sizes
     
     enum Sizes {
         static private var screenSize = UIScreen.main.bounds

@@ -19,7 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let notesController = NotesViewController(viewModel: NotesViewModel(dataStorage: DataStorage()))
         var rootController = BaseNavController()
         
-        if AppDelegate().isNewUser() {
+        if Core.shared.isNewUser() {
             rootController = BaseNavController(rootViewController: OnboardingPageController())
             rootController.isNavigationBarHidden = true
             window?.rootViewController = rootController
